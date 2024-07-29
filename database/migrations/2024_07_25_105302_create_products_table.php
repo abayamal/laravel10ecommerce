@@ -20,11 +20,10 @@ return new class extends Migration
             $table->decimal('regular_price');
             $table->decimal('sale_price')->nullable();
             $table->string('SKU');
-            $table->enum('stock_status,["instock","outofstock"]');
+            $table->enum('stock_status',["instock","outofstock"]);
             $table->boolean('featured')->default(false);
             $table->unsignedInteger('quantity')->default(1);
             $table->string('image');
-            $table->text('image');
             $table->unsignedBigInteger('category_id');
             $table->unsignedBigInteger('brand_id');
             $table->foreign('category_id')->references('id')->on('categories')->onDelete('cascade');
