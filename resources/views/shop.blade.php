@@ -525,7 +525,7 @@
 
 
                     </div>
-                    {{$products->links()}}
+                    {{$products->links("pagination.default")}}
                     <!-- <nav class="page-section">
                         <ul class="pagination">
                             <li class="page-item">
