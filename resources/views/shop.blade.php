@@ -455,13 +455,13 @@
                             <div class="product-box">
                                 <div class="img-wrapper">
                                     <div class="front">
-                                        <a href="product/nihil-beatae-sit-sed.html">
+                                        <a href="{{route('shop.product.details',['slug'=>$product->slug])}}">
                                             <img src="assets/images/fashion/product/front/{{$product->image}}"
                                                 class="bg-img blur-up lazyload" alt="">
                                         </a>
                                     </div>
                                     <div class="back">
-                                        <a href="product/nihil-beatae-sit-sed.html">
+                                        <a href="{{route('shop.product.details',['slug'=>$product->slug])}}">
                                             <img src="assets/images/fashion/product/back/{{$product->image}}"
                                                 class="bg-img blur-up lazyload" alt="">
                                         </a>
@@ -508,8 +508,8 @@
                                         </ul>
                                     </div>
                                     <div class="main-price">
-                                        <a href="product/nihil-beatae-sit-sed.html" class="font-default">
-                                            <h5 class="ms-0">{{$product->name}}</h5>
+                                        <a href="{{route('shop.product.details',['slug'=>$product->slug])}}" class="font-default">
+                                            <h5 class="ms-0"></h5>
                                         </a>
                                         <div class="listing-content">
                                             <span class="font-light">{{$product->category->name}}</span>
