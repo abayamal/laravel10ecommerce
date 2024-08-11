@@ -1,6 +1,6 @@
 @extends('layouts.base')
-@push('styles')
-    <link id="color-link" rel="stylesheet" type="text/css" href="{{asset('assets/css/demo2.css')}}">
+@push('style')
+<link id="color-link" rel="stylesheet" type="text/css" href="{{asset('assets/css/demo2.css')}}">
 @endpush
 @section('content')
 <section class="breadcrumb-section section-b-space" style="padding-top:20px;padding-bottom:20px;">
@@ -46,17 +46,17 @@
                                     <div class="col-lg-2">
                                         <div class="details-image-vertical black-slide rounded">
                                             <div>
-                                                <img src="{{asset('assets/images/fashion/product/front')}}/{{$product->image}}"
-                                                    class="img-fluid blur-up lazyload" alt="{{$product->name}}">
+                                                <img src="{{asset('assets/images/fashion/product/front')}}/{{$product->image}}" class="img-fluid blur-up lazyload" alt="{{$product->name}}">
                                             </div>
                                             @if($product->images)
                                             @php
-                                                $images = explode(',',$product->images);
+                                                $images = explode(',',$product->images); 
                                             @endphp
                                             @foreach($images as $image)
-                                                <div>
-                                                    <img src="{{asset('assets/images/fashion/2.jpg')}}/{{image}}" class="img-fluid blur-up lazyload" alt="">
-                                                </div>
+                                            <div>
+                                                <img src="{{asset('assets/images/fashion/product/front')}}/{{$image}}"
+                                                    class="img-fluid blur-up lazyload" alt="">
+                                            </div>
                                             @endforeach
                                             @endif
                                         </div>
@@ -69,15 +69,16 @@
 
                                             @if($product->images)
                                             @php
-                                                $images = explode(',',$product->images);
+                                                $images = explode(',',$product->images); 
                                             @endphp
                                             @foreach($images as $image)
-                                                <div>
-                                                <img src="{{asset('assets/images/fashion/2.jpg')}}/{{image}}" class="img-fluid w-100 image_zoom_cls-1 blur-up lazyload" alt="">
-                                                </div>
+                                            <div>
+                                                <img src="{{asset('assets/images/fashion/product/front')}}/{{$image}}" class="img-fluid w-100 image_zoom_cls-1 blur-up lazyload" alt="">
+                                            </div>
                                             @endforeach
                                             @endif
 
+                                          
                                         </div>
                                     </div>
                                 </div>
@@ -113,11 +114,11 @@
 
                                     <h3 class="price-detail">
                                         @if($product->sale_price)
-                                            {{$product->sale_price}}
+                                        {{$product->sale_price}}
                                         <del>{{$product->regular_price}}</del>
-                                        <span>{{round((($product->regular_price - $product->sale_price)/$product->regular_price)*100)}}% off</span>
+                                        <span>{{round((($product->regular_price - $product->sale_price)/$product->regular_price)*100)}}</span>
                                         @else
-
+                                        {{$product->regular_price}}
                                         @endif
                                     </h3>
 
@@ -229,10 +230,10 @@
 
                                     <div class="mt-2 mt-md-3 border-product">
                                         <h6 class="product-title hurry-title d-block">
-                                            @if($product->stock_status == 'instock')
-                                                Instock
+                                            @if($product->stock_status=='instock')
+                                            InStock
                                             @else
-                                                Out of stock
+                                            Out Of Stock
                                             @endif
                                         </h6>
                                         <div class="progress">
@@ -319,7 +320,7 @@
                         <div class="tab-content" id="nav-tabContent">
                             <div class="tab-pane fade show active" id="desc">
                                 <div class="shipping-chart">
-                                 {{$product->description}}
+                                   {{$product->description}}
                                 </div>
                             </div>
 
