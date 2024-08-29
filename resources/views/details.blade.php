@@ -205,7 +205,7 @@
                                             <i class="fa fa-shopping-cart"></i>
                                             <span>Add To Cart</span>
                                             <form id="addtocart" method="post"
-                                                action="http://localhost:8000/cart/store">
+                                                action="">
                                                 <input type="hidden" name="_token"
                                                     value="MkRqEzTGuoSx6LqJUm0OAKxSgNUYt26wTT7RMUZY"> <input
                                                     type="hidden" name="id" value="1">
