@@ -148,7 +148,7 @@
                   <div class="brand-logo">
                     <a href="{{route('app.index')}}">
                       <img
-                        src="assets/images/logo.png"
+                        src="{{asset('assets/images/logo.png')}}"
                         class="h-logo img-fluid blur-up lazyload"
                         alt="logo"
                       />
@@ -181,7 +181,7 @@
                           >
                         </li>
                         <li>
-                          <a href="cart/list.html" class="nav-link menu-title"
+                          <a href="{{route('cart.index')}}" class="nav-link menu-title"
                             >Cart</a
                           >
                         </li>
@@ -226,13 +226,13 @@
                     </li>
                     <li class="onhover-dropdown wislist-dropdown">
                       <div class="cart-media">
-                        <a href="cart/list.html">
+                        <a href="{{route('cart.index')}}">
                           <i data-feather="shopping-cart"></i>
                           <span
                             id="cart-count"
                             class="label label-theme rounded-pill"
                           >
-                            0
+                            {{Cart::instance('cart')->content()->count()}}
                           </span>
                         </a>
                       </div>
