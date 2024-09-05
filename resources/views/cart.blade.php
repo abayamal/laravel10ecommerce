@@ -56,13 +56,13 @@
 
                             <tr>
                                 <td>
-                                    <a href="{{route('shop.product.details',['slug'=>$item->model->slug])}}">
-                                        <img src="{{asset('assets/images/fashion/product/front/{{$item->model->image}}')}}" class="blur-up lazyloaded"
-                                            alt="{{$item->model->name}}">
-                                    </a>
+                                <a href="{{ route('shop.product.details', ['slug' => $item->model->slug]) }}">
+                                    <img src="{{ asset('assets/images/fashion/product/front/' . $item->model->image) }}" class="blur-up lazyloaded" alt="{{ $item->model->name }}">
+                                </a>
+
                                 </td>
                                 <td>
-                                    <a href="{{route('shop.product.details')}}">{{$item->model->name}}</a>
+                                    <a href="   ">{{$item->model->name}}</a>
                                     <div class="mobile-cart-content row">
                                         <div class="col">
                                             <div class="qty-box">
@@ -121,7 +121,7 @@
                         </div>
                         <div class="col-sm-5 col-7">
                             <div class="left-side-button float-start">
-                                <a href="../shop.html" class="btn btn-solid-default btn fw-bold mb-0 ms-0">
+                                <a href="{{route('shop.index')}}" class="btn btn-solid-default btn fw-bold mb-0 ms-0">
                                     <i class="fas fa-arrow-left"></i> Continue Shopping</a>
                             </div>
                         </div>
