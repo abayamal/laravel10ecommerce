@@ -232,7 +232,7 @@
                             id="cart-count"
                             class="label label-theme rounded-pill"
                           >
-                            {{Cart::instance('cart')->content()->count()}}
+                            {{Cart::instance('cart')->count()}}
                           </span>
                         </a>
                       </div>
