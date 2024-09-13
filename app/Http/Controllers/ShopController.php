@@ -6,6 +6,7 @@ use App\Models\Brand;
 use App\Models\Product;
 use App\Models\Category;
 use Illuminate\Http\Request;
+use Cart;
 
 class ShopController extends Controller
 {
@@ -71,5 +72,12 @@ class ShopController extends Controller
         $product = Product::where('slug',$slug)->first();
 
         return view('details',['product'=>$product]);
+    }
+
+    public function getCartAndWishlistCount(){
+        $cartCount = Cart::instance("cart")->content()->count();
+        $wishlistCount = Cart::instance("wishlist")->content()->count();
+        return response()->json(['status'=>200,'cartCount'=>$cartCount,'wishlistCount'=>$wishlistCount]);
+        
     }
 }
