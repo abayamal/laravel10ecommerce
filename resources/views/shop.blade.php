@@ -362,7 +362,7 @@
                                                 </a>
                                             </li>
                                             <li>
-                                                <a href="javascript:void(0)" class="wishlist">
+                                                <a href="javascript:void(0)" class="wishlist" onclick="addProductToWishList({{$product->id}},'{{$product->name}}',1,{{$product->regular_price}})">
                                                     <i data-feather="heart"></i>
                                                 </a>
                                             </li>
@@ -532,6 +532,43 @@
             });
             $('#categories').val(categories);
             $('#frmFilter').submit();
+        }
+
+        function addProductToWishList(id,name,quantity,price){
+            $.ajax({
+                type:"POST",
+                url:"{{route('wishlist.store')}}",
+                data:{
+                    "_token":"{{csrf_token()}}",
+                    id:id,
+                    name:name,
+                    quantity:quantity,
+                    price:price
+                },
+                success:function(data){
+                    if(data.status == 200){
+                        getCartAndWishlistCount();
+                        $.notify({
+                            icon:"fa fa-check",
+                            title:"success",
+                            message:"Item successfully added to your wishlist!"
+                        })
+                    }
+                }
+            })
+        }
+
+        function getCartAndWishlistCount(){
+            $.ajax({
+                type:'GET',
+                url:"{{ route('shop.cart.wishlist.count') }}",
+                success: function(data){
+                    if(data.status == 200){
+                        $('#cart-count').html(data.cartCount);
+                        $('#wishlist-count').html(data.wishlistCount);
+                    }
+                }
+            });
         }
     </script>
 @endpush
