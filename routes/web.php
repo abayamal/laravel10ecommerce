@@ -38,6 +38,8 @@ Route::delete('cart/clear',[CartController::class,'clearCart'])->name('cart.clea
 
 Route::get('/wishlist',[WishlistController::class,'getWishListedProducts'])->name('wishlist.list');
 Route::post('/wishlist/add',[WishlistController::class,'addProductToWishlist'])->name('wishlist.store');
+Route::delete('/wishlist/remove',[WishlistController::class,'removeProductFromWishlist'])->name('wishlist.remove');
+Route::delete('/wishlist/clear',[WishlistController::class,'clearWishlist'])->name('wishlist.clear');
 
 
 Auth::routes();
