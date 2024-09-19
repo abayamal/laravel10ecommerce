@@ -36,6 +36,7 @@ Route::put('/cart/update',[CartController::class,'updateCart'])->name('cart.upda
 Route::delete('cart/remove',[CartController::class,'removeItem'])->name('cart.remove');
 Route::delete('cart/clear',[CartController::class,'clearCart'])->name('cart.clear');
 
+Route::get('/wishlist',[WishlistController::class,'getWishListedProducts'])->name('wishlist.list');
 Route::post('/wishlist/add',[WishlistController::class,'addProductToWishlist'])->name('wishlist.store');
 
 
