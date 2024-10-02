@@ -90,10 +90,15 @@
                                     <p>In Stock</p>
                                 </td>
                                 <td>
-
-                                    <a href="javascript:void(0)" class="icon">
+                                    @if($item->model->stock_status = 'instock')
+                                    <a href="javascript:void(0)" class="icon" onclick="moveToCard('{{$item->rowId}}');">
                                         <i class="fas fa-shopping-cart"></i>
                                     </a>
+                                    @else
+                                    <a href="javascript:void(0)" class="icon disabled">
+                                        <i class="fas fa-shopping-cart"></i>
+                                    </a>
+                                    @endif
                                     <a href="javascript:void(0)" class="icon" onclick="removeFromWishlist('{{$item->rowId}}')">
                                         <i class="fas fa-times"></i>
                                     </a>
@@ -133,6 +138,11 @@
     @method('delete')
     </form>
 
+    <form id="moveToCard" action="{{route('wishlist.move.to.cart')}}" method="post">
+        @csrf
+        <input type="hidden" name="rowId" id="mrowId"/>
+    </form>
+
     @push('scripts')
     <script>
         function removeFromWishlist(rowId){
@@ -142,6 +152,11 @@
 
         function clearWishlist(){
             $('#clearWishlist').submit();
+        }
+
+        function moveToCard(rowId){
+            $("#mrowId").val(rowId);
+            $('#moveToCard').submit();
         }
     </script>
     @endpush
